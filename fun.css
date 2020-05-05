@@ -1,0 +1,48 @@
+#title {
+  background-color: black;
+  color: white;
+  text-align: center;
+
+}
+
+#stopwatch {
+  background-color: black;
+  color: white;
+  width: 120px;
+  height: auto;
+  font-size: 30px;
+  text-align: center;
+  grid-area: stop;
+}
+
+#stopwatchLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  grid-template-areas:
+    ". stitle ."
+    ". stop ."
+    " but1 but2 but3 ";
+}
+
+#stitle {grid-area: stitle;}
+#but1 {grid-area: but1;}
+#but2 {grid-area: but2;}
+#but3 {grid-area: but3;}
+
+#timer {
+  background-color: black;
+  color: white;
+  width: 120px;
+  height: auto;
+  font-size: 30px;
+  text-align: center;
+  grid-area: stop;
+}
+
+#layout {
+display: grid;
+grid-template-columns: 1fr 1fr;
+justify-items: center;
+text-align: center;
+}
