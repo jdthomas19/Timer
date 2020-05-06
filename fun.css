@@ -23,10 +23,21 @@
     " but1 but2 but3 ";
 }
 
-#stitle {grid-area: stitle;}
-#but1 {grid-area: but1;}
-#but2 {grid-area: but2;}
-#but3 {grid-area: but3;}
+#stitle {
+  grid-area: stitle;
+}
+
+#but1 {
+  grid-area: but1;
+}
+
+#but2 {
+  grid-area: but2;
+}
+
+#but3 {
+  grid-area: but3;
+}
 
 #timer {
   background-color: black;

@@ -6,10 +6,10 @@ let millsecs = 0;
 let bebop;
 
 function runOrStop() {
- if (bebop === false) {
-   stop();
-} else if(bebop === true){
-  start();
+  if (bebop === false) {
+    stop();
+  } else if (bebop === true) {
+    start();
   }
 }
 
@@ -24,8 +24,8 @@ function start() {
     millsecs = 0;
   }
   if (seconds == 60) {
-      minutes++;
-      seconds = 0;
+    minutes++;
+    seconds = 0;
   }
 }
 
@@ -46,21 +46,21 @@ function changeStopwatch() {
   let secondStr;
   let millsecStr;
   if (millsecs < 10) {
-     millsecStr = `:0${millsecs}`;
+    millsecStr = `:0${millsecs}`;
   } else {
-       millsecStr = `:${millsecs}`;
+    millsecStr = `:${millsecs}`;
   }
   if (seconds < 10) {
-       secondStr = `:0${seconds}`;
+    secondStr = `:0${seconds}`;
   } else {
-       secondStr = `:${seconds}`;
+    secondStr = `:${seconds}`;
   }
   if (minutes < 10) {
-     minuteStr = `0${minutes}`;
+    minuteStr = `0${minutes}`;
   } else {
-       minuteStr = `${minutes}`;
+    minuteStr = `${minutes}`;
   }
-  document.getElementById('stopwatch').innerHTML = minuteStr+secondStr+millsecStr
+  document.getElementById('stopwatch').innerHTML = minuteStr + secondStr + millsecStr
 }
 
 let timerMillsec;
@@ -72,7 +72,7 @@ let timerOnOrOff;
 function timerGoOrNo() {
   if (timerOnOrOff === false) {
     timerStop();
-  } else if(timerOnOrOff === true) {
+  } else if (timerOnOrOff === true) {
     timerStart();
   }
 }
@@ -88,10 +88,10 @@ function timerSet() {
   timerSec = timeSet[1];
   timerMillsec = timeSet[2];
 
-  if ( !timeInput.match(desiredTimeInput)) {
+  if (!timeInput.match(desiredTimeInput)) {
     alert("Invalid time, please enter in the format 00:00:00");
   } else {
-  changeTimer();
+    changeTimer();
   }
 }
 
@@ -99,19 +99,19 @@ function timerStart() {
   timerOnOrOff = true;
   if (timerMillsec != 0 && timerSec == 0 && timeMins == 0) {
     timerMillsec--;
-  } else if (timerMillsec == 0 && timerSec != 0 ) {
-      timerMillsec = 100;
-      timerMillsec--;
-      timerSec--;
+  } else if (timerMillsec == 0 && timerSec != 0) {
+    timerMillsec = 100;
+    timerMillsec--;
+    timerSec--;
   } else if (timerMillsec == 0 && timeMins != 0 && timerSec == 0) {
-      timeMins -= 1;
-      timerMillsec = 100;
-      timerSec = 60;
-      timerMillsec--;
-  } else if (timerMillsec != 0 && timerSec != 0 ) {
-      timerMillsec--;
-  } else if (timerMillsec != 0 && timeMins != 0 ) {
-      timerMillsec--;
+    timeMins -= 1;
+    timerMillsec = 100;
+    timerSec = 60;
+    timerMillsec--;
+  } else if (timerMillsec != 0 && timerSec != 0) {
+    timerMillsec--;
+  } else if (timerMillsec != 0 && timeMins != 0) {
+    timerMillsec--;
   }
   changeTimer();
 }
@@ -140,5 +140,5 @@ function changeTimer() {
   } else {
     minuteStr = `${timeMins}`;
   }
-  document.getElementById('timer').innerHTML = minuteStr+secondStr+millsecStr;
+  document.getElementById('timer').innerHTML = minuteStr + secondStr + millsecStr;
 }
