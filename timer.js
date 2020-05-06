@@ -3,14 +3,10 @@
 let seconds = 0;
 let minutes = 0;
 let millsecs = 0;
-let bebop;
+let stopwatchOnOrOff = false;
 
 function runOrStop() {
-  if (bebop === false) {
-    stop();
-  } else if (bebop === true) {
-    start();
-  }
+  stopwatchOnOrOff ? start() : stop();
 }
 
 setInterval(runOrStop, 10);
@@ -18,7 +14,7 @@ setInterval(runOrStop, 10);
 function start() {
   changeStopwatch();
   millsecs++;
-  bebop = true;
+  stopwatchOnOrOff = true;
   if (millsecs == 100) {
     seconds++;
     millsecs = 0;
@@ -30,7 +26,7 @@ function start() {
 }
 
 function stop() {
-  bebop = false;
+  stopwatchOnOrOff = false;
   changeStopwatch();
 }
 
@@ -38,7 +34,7 @@ function reset() {
   seconds = 0;
   millsecs = 0;
   minutes = 0;
-  bebop = false;
+  stopwatchOnOrOff = false;
 }
 
 function changeStopwatch() {
