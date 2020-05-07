@@ -27,15 +27,15 @@
   grid-area: stitle;
 }
 
-#but1 {
+.but1 {
   grid-area: but1;
 }
 
-#but2 {
+.but2 {
   grid-area: but2;
 }
 
-#but3 {
+.but3 {
   grid-area: but3;
 }
 
