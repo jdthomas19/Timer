@@ -1,9 +1,9 @@
-'usse strict';
+'use strict';
 
-export * as time from './timer_func.js';
+import * as time from './timer_func.js';
 
-document.getElementById("timer-set").addEventListener("click", time.timerSet);
-document.getElementById("timer-start").addEventListener("click", time.timerStart);
-document.getElementById("timer-stop").addEventListener("click", time.timerStop);
+document.getElementById("timer-set").addEventListener("click", time.setTimer);
+document.getElementById("timer-start").addEventListener("click", time.startTimer);
+document.getElementById("timer-stop").addEventListener("click", time.stopTimer);
 
-setInterval(time.timerGoOrNo, 10);
+setInterval(time.toggleTimer, 10);

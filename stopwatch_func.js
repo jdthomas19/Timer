@@ -1,16 +1,17 @@
 let seconds = 0;
 let minutes = 0;
 let millsecs = 0;
-let stopwatchOnOrOff = false;
+let stopwatchIsOn = false;
 
-export function runOrStop() {
-  stopwatchOnOrOff ? start() : stop();
+export function toggleStopwatch() {
+  stopwatchIsOn ? startStopwatch() : stopStopwatch();
 }
 
-export function start() {
-  changeStopwatch();
+export function startStopwatch() {
+  changeStopwatchLabel();
   millsecs++;
-  stopwatchOnOrOff = true;
+  stopwatchIsOn = true;
+
   if (millsecs == 100) {
     seconds++;
     millsecs = 0;
@@ -21,36 +22,32 @@ export function start() {
   }
 }
 
-export function stop() {
-  stopwatchOnOrOff = false;
-  changeStopwatch();
+export function stopStopwatch() {
+  stopwatchIsOn = false;
 }
 
-export function reset() {
+export function resetStopwatch() {
   seconds = 0;
   millsecs = 0;
   minutes = 0;
-  stopwatchOnOrOff = false;
+  stopwatchIsOn = false;
+  changeStopwatchLabel();
 }
 
-function changeStopwatch() {
-  let minuteStr;
-  let secondStr;
-  let millsecStr;
+function changeStopwatchLabel() {
+  let minuteStr = `${minutes}`;
+  let secondStr = `:${seconds}`;
+  let millsecStr = `:${millsecs}`;
+
   if (millsecs < 10) {
     millsecStr = `:0${millsecs}`;
-  } else {
-    millsecStr = `:${millsecs}`;
   }
   if (seconds < 10) {
     secondStr = `:0${seconds}`;
-  } else {
-    secondStr = `:${seconds}`;
   }
   if (minutes < 10) {
     minuteStr = `0${minutes}`;
-  } else {
-    minuteStr = `${minutes}`;
   }
+
   document.getElementById('stopwatch').innerHTML = minuteStr + secondStr + millsecStr;
 }

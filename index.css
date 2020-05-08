@@ -14,7 +14,7 @@
   grid-area: stop;
 }
 
-#stopwatch-layout {
+.stopwatch-layout {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
@@ -23,7 +23,7 @@
     " but1 but2 but3 ";
 }
 
-#stitle {
+.stitle {
   grid-area: stitle;
 }
 

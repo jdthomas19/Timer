@@ -1,76 +1,67 @@
 let timerMillsec;
 let timerSec;
-let timeMins;
-let timeInput;
-let timerOnOrOff;
+let timerMins;
+let timerIsOn = false;
 
-export function timerGoOrNo() {
-  if (timerOnOrOff === false) {
-    timerStop();
-  } else if (timerOnOrOff === true) {
-    timerStart();
-  }
+export function toggleTimer() {
+  timerIsOn ? startTimer() : stopTimer();
 }
 
-export function timerSet() {
-  timerOnOrOff = false;
+export function setTimer() {
+  timerIsOn = false;
   let timeInput = prompt("Please enter the time you would like to set in this format (Mins:Seconds:Milliseconds)", "00:00:00");
   let desiredTimeInput = /^\d{2}:\d{2}:\d{2}$/;
   let timeSet = timeInput.split(":").map(Number);
-  timeMins = timeSet[0];
+  timerMins = timeSet[0];
   timerSec = timeSet[1];
   timerMillsec = timeSet[2];
+
   if (!timeInput.match(desiredTimeInput)) {
     alert("Invalid time, please enter in the format 00:00:00");
   } else {
-    changeTimer();
+    changeTimerLabel();
   }
 }
 
-export function timerStart() {
-  timerOnOrOff = true;
-  if (timerMillsec != 0 && timerSec == 0 && timeMins == 0) {
+export function startTimer() {
+  timerIsOn = true;
+  if (timerMillsec != 0 && timerSec == 0 && timerMins == 0) {
     timerMillsec--;
   } else if (timerMillsec == 0 && timerSec != 0) {
     timerMillsec = 100;
     timerMillsec--;
     timerSec--;
-  } else if (timerMillsec == 0 && timeMins != 0 && timerSec == 0) {
-    timeMins -= 1;
+  } else if (timerMillsec == 0 && timerMins != 0 && timerSec == 0) {
+    timerMins -= 1;
     timerMillsec = 100;
     timerSec = 60;
     timerMillsec--;
   } else if (timerMillsec != 0 && timerSec != 0) {
     timerMillsec--;
-  } else if (timerMillsec != 0 && timeMins != 0) {
+  } else if (timerMillsec != 0 && timerMins != 0) {
     timerMillsec--;
   }
-  changeTimer();
+  changeTimerLabel();
 }
 
-export function timerStop() {
-  timerOnOrOff = false;
-  changeTimer();
+export function stopTimer() {
+  timerIsOn = false;
 }
 
-function changeTimer() {
-  let minuteStr;
-  let secondStr;
-  let millsecStr;
+function changeTimerLabel() {
+  let minuteStr = `${timerMins}`;
+  let secondStr = `:${timerSec}`;
+  let millsecStr = `:${timerMillsec}`;
+
   if (timerMillsec < 10) {
     millsecStr = `:0${timerMillsec}`;
-  } else {
-    millsecStr = `:${timerMillsec}`;
   }
   if (timerSec < 10) {
     secondStr = `:0${timerSec}`;
-  } else {
-    secondStr = `:${timerSec}`;
   }
-  if (timeMins < 10) {
-    minuteStr = `0${timeMins}`;
-  } else {
-    minuteStr = `${timeMins}`;
+  if (timerMins < 10) {
+    minuteStr = `0${timerMins}`;
   }
+
   document.getElementById('timer').innerHTML = minuteStr + secondStr + millsecStr;
 }
