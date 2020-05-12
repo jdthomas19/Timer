@@ -20,7 +20,7 @@
   grid-template-areas:
     ". stitle ."
     ". stop ."
-    " but1 but2 but3 ";
+    "but1 but2 but3";
 }
 
 .stitle {

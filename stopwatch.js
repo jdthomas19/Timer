@@ -1,9 +1,9 @@
 'use strict';
 
-import * as watch from './stopwatch_func.js';
+import * as stopwatch from './stopwatch_func.js';
 
-document.getElementById("stopwatch-start").addEventListener("click", watch.startStopwatch);
-document.getElementById("stopwatch-stop").addEventListener("click", watch.stopStopwatch);
-document.getElementById("stopwatch-reset").addEventListener("click", watch.resetStopwatch);
+document.getElementById("stopwatch-start").addEventListener("click", stopwatch.startStopwatch);
+document.getElementById("stopwatch-stop").addEventListener("click", stopwatch.stopStopwatch);
+document.getElementById("stopwatch-reset").addEventListener("click", stopwatch.resetStopwatch);
 
-setInterval(watch.toggleStopwatch, 10);
+setInterval(stopwatch.toggleStopwatch, 10);
